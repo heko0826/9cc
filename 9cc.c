@@ -7,12 +7,12 @@ int main(int argc,char **argv){
     return 1;
   }
 
-  char *p =argv[1];
+  char *p =argv[1]; //argv[1]はargv[1]のアドレス。つまり、&argv[1][0]と同意
   
   printf(".intel_syntax noprefix\n");
   printf(".globl main\n");
   printf("main:\n");
-  printf("  mov rax, %ld\n",strtol(p, &p, 10));
+  printf("  mov rax, %ld\n",strtol(p, &p, 10)); //strtolの十進は数字の前に+,-がついてても数字として認識する(ex.+1,-1)
 
   while(*p){
 	if(*p == '+'){
